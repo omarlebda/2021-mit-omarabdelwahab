@@ -3,13 +3,13 @@ version: "3.9"
 services:
   db:
     #    Load and run an image
-    image: postgres
+    image: mysql
 
     #    Define environment variables
     environment:
-      - user=mysql
-      - database=mysql
-      - password=mysql
+      - MYSQL_DB=mysql
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
 
   hello-app:
     #    Where docker-compose looks for Dockerfile
@@ -29,4 +29,4 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-            - db
+      - db
