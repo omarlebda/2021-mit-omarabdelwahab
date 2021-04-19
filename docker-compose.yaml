@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    #    Load and run an image
+    image: mysql
+
+    #    Define environment variables
+    environment:
+      - MYSQL_DB=mysql
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+
+  hello-app:
+    #    Where docker-compose looks for Dockerfile
+    image: yourlogin/hello-app
+    build: .
+    
+    #    Restart if an error has occurred (no db)
+    restart: always
+
+    #    Rewrite CMD from Dockerfile
+    #    command: python manage.py runserver 0.0.0.0:8000
+
+    #    We have ADD command in Dockerfile, but we can connect our `src` like this
+    #    volumes:
+    #      - .:/src
+
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
