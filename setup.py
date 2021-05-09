@@ -22,17 +22,19 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-EXCLUDE_FROM_PACKAGES = ["project","project.*"]
+EXCLUDE_FROM_PACKAGES = ["project", "project.*"]
+
 
 def read(fname):
     with open(os.path.join(os.path.dirname(__file__), fname)) as f:
         return f.read()
 
+
 setup(
     name="django-helloworld",
     version="0.1",
     description="A Django 'Hello World' program example",
-    long_description=read('README.rst'),
+    long_description=read("README.rst"),
     classifiers=CLASSIFIERS,
     keywords="example helloworld django program",
     author="Alex Clark",
@@ -47,9 +49,9 @@ setup(
     include_package_data=True,
     zip_safe=False,
     project_urls={
-        'Documentation': 'https://docs.djangoproject.com/',
-        'Funding': 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KX6MCYREN2BR2&lc=VE&item_name=lcaballero%2ewordpress%2ecom&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted',
-        'Source': 'https://github.com/django-ve/django-helloworld',
-        'Tracker': 'https://github.com/django-ve/buildout.django/issues',
+        "Documentation": "https://docs.djangoproject.com/",
+        "Funding": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KX6MCYREN2BR2&lc=VE&item_name=lcaballero%2ewordpress%2ecom&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted",
+        "Source": "https://github.com/django-ve/django-helloworld",
+        "Tracker": "https://github.com/django-ve/buildout.django/issues",
     },
 )
