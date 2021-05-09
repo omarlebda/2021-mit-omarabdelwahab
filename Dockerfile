@@ -20,7 +20,7 @@ RUN unzip /tmp/app.zip -d /tmp/app && \
 # Install dependencies
 
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Share port
 EXPOSE 8000
