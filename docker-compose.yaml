@@ -7,8 +7,9 @@ services:
 
     #    Define environment variables
     environment:
-      - MYSQL_DB=mysql
+      - MYSQL_DATABASE=mysql
       - MYSQL_USER=mysql
+      - MYSQL_ROOT_PASSWORD=mysql
       - MYSQL_PASSWORD=mysql
 
   hello-app:
