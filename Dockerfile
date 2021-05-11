@@ -5,12 +5,12 @@ FROM ubuntu:20.04
 ENV BRANCH="mysql"
 
 RUN apt-get update && apt-get install unzip
-
 # Download and unpack source code
 # In a real project you'll use `ADD ./src`
 
 RUN apt-get install -y python3
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y python3-pip python3-django
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y python3-pip
+RUN echo "y" | apt-get install libmysqlclient-dev
 # Make /app working directory
 
 ADD https://github.com/allburov/django-helloworld/archive/${BRANCH}.zip /tmp/app.zip
@@ -18,8 +18,9 @@ ADD https://github.com/allburov/django-helloworld/archive/${BRANCH}.zip /tmp/app
 RUN unzip /tmp/app.zip -d /tmp/app && \
     mv /tmp/app/django-helloworld-${BRANCH} /app
 # Install dependencies
-
 WORKDIR /app
+RUN pip3 install --upgrade pip setuptools wheel
+RUN pip3 install minepy
 RUN pip3 install -r requirements.txt
 
 # Share port
